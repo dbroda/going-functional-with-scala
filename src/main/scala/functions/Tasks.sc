@@ -7,16 +7,21 @@
   * "<div><p>Hello world</p></div>"
   */
 
-def tag(prefix: String, content: String, suffix: String): String = ???
+def tag(prefix: String, content: String, suffix: String): String = prefix+content+suffix
 
 /**
   * Then write more specialized versions of it.
   */
 
-val tagWithDiv = ???
+
+val tag2 = tag _
+val tag3 =  tag2 curried
+
+
+val tagWithDiv = tag3("<div>")(_ : String)("</div>")
 tagWithDiv("<p>Hello</p>")
 
-val tagWithSpan = ???
+val tagWithSpan = tag3("<span>")(_ : String)("</span>")
 
 tagWithDiv("<p>Hello, World</p>")
 
@@ -30,7 +35,10 @@ tagWithSpan("<p>Hello, World</p>")
   * ("softwaremill", 12)
   */
 
-val pf = ???
+val pf : PartialFunction[String, Tuple2[String, Int]] = { case x if x.size > 5 => (x, x.size) }
+
+List("dbroda","softwaremill").collect(pf)
+
 
 /**
   * Reimplement the function above using case blocks

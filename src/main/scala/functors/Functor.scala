@@ -13,14 +13,14 @@ object Maybe {
 object Functors extends App {
   val maybeString = Maybe("softwaremill")
 
-  val len = maybeString.map(_.length)
-
-  val length = for {
-    string <- maybeString
-  } yield string.length
-
-  println(s"Len: $len")
-  println(s"Length: $length")
+//  val len = maybeString.map(_.length)
+//
+//  val length = for {
+//    string <- maybeString
+//  } yield string.length
+//
+//  println(s"Len: $len")
+//  println(s"Length: $length")
 
 }
 

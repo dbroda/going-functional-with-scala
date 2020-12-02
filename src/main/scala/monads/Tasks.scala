@@ -5,14 +5,25 @@ import scala.language.higherKinds
   * It should be similar to Either[A, B]
   * Implement both map and flatMap methods
   */
-
-trait Or[A, B] {
-  def map[C](f: A => C) = ???
-  def flatMap[C](f: A => Or[A, C]): Or[A, C] = ???
-}
-
-case class Right[A, B](right: B) extends Or[A, B]
-case class Left[A, B](left: A) extends Or[A, B]
+//
+//trait Or[A, B] {
+//  def map[C](f: A => C): Or[A,C] = {
+//
+//    def ac[C](value: A)(f: A => C): Or[A,C] = {
+//      Left(f)
+//    }
+//
+//    this match {
+//      case Right(x) => Right(f(x))
+//      case Left(x) => Left(f(x))
+//    }
+//  }
+//
+//  def flatMap[C](f: A => Or[A, C]): Or[A, C] = ???
+//}
+//
+//case class Right[A, B](right: B) extends Or[A, B]
+//case class Left[A, B](left: A) extends Or[A, B]
 
 /**
 We all know that every monad is also a Functor.
